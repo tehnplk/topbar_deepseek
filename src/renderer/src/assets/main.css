@@ -1,0 +1,153 @@
+@import './base.css';
+
+#root {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+/* --------------------------------- bar ---------------------------------- */
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 30px;
+  padding: 0 8px 0 10px;
+  color: var(--text);
+  background:
+    radial-gradient(
+      60rem 3.5rem at 0% 0%,
+      color-mix(in srgb, var(--accent) var(--bar-glow), transparent),
+      transparent 72%
+    ),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 color-mix(in srgb, var(--accent) var(--bar-line), transparent);
+}
+
+/* The window is transparent and a little taller than the bar (Windows clamps
+   window height), so the strip above the bar is off-screen. Painting it in the
+   bar's top colour hides the transparent sliver at the very top edge. */
+.bar::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 24px;
+  background: var(--bg-top);
+}
+
+/* ------------------------------- app icon ------------------------------- */
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 2px 8px -1px color-mix(in srgb, var(--accent) 75%, transparent);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* ---------------------------------- HN --------------------------------- */
+
+.hn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.hn-value {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.pt {
+  max-width: 460px;
+  overflow: hidden;
+  color: var(--text-dim);
+  font-size: 10.5px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ------------------------------- collapse ------------------------------- */
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  color: var(--text-dim);
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.icon-btn:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.icon-btn:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* ------------------------------- collapsed ------------------------------ */
+
+.collapsed {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.collapsed-line {
+  width: calc(100% - 20px);
+  height: 5px;
+  margin-bottom: 1px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 60%, transparent);
+  cursor: pointer;
+  transition:
+    height 140ms ease,
+    filter 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.collapsed-line:hover {
+  height: 7px;
+  filter: brightness(1.18);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 75%, transparent);
+}
+
+.collapsed-line:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
