@@ -1,5 +1,7 @@
 # topbar_deepseek
 
+[![CI](https://github.com/tehnplk/topbar_deepseek/actions/workflows/ci.yml/badge.svg)](https://github.com/tehnplk/topbar_deepseek/actions/workflows/ci.yml)
+
 แถบ **Top Sticky Bar** ความสูง **30 DIP** ที่จองพื้นที่ด้านบนสุดของหน้าจอ แล้วดันหน้าต่างแอปอื่น
 (รวมถึงหน้าต่างที่ maximize) ลงมา — สร้างด้วย **Electron + React + TypeScript + Vite**
 พร้อมไอคอนจาก **lucide-react**
